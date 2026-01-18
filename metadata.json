@@ -1,0 +1,5 @@
+{
+  "name": "Resume Tailor & Tracker",
+  "description": "A local-first Resume Content Management System that allows users to maintain a master profile, tailor resumes for specific job descriptions using AI, and generate ATS-compliant PDFs. Includes a Python backend specification reference.",
+  "requestFramePermissions": []
+}

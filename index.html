@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Tailor & Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      .print-preview {
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      }
+      
+      /* Elements that should only appear when printing (e.g. expanded text divs replacing textareas) */
+      .only-print {
+        display: none !important;
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        /* 
+           RESET SCROLL CONTAINERS
+           Target specific IDs to break out of "h-screen" and "overflow-hidden".
+           Added #cover-letter-view to ensure the grid container is reset.
+        */
+        body, html, #root, #app-root, #main-content, #view-content, #resume-preview-wrapper, #cover-letter-view, #cover-letter-wrapper {
+          background: white !important;
+          width: 100% !important;
+          height: auto !important;
+          overflow: visible !important;
+          display: block !important;
+          position: static !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Hide UI */
+        .no-print, aside, header, nav {
+          display: none !important;
+        }
+        
+        /* Show print-specific elements */
+        .only-print {
+            display: block !important;
+        }
+
+        /* 
+           The specific page container.
+        */
+        .print-preview {
+            width: 210mm !important;
+            min-height: 297mm !important; /* Keep min-height to force page break logic if needed */
+            margin: 0 auto !important;
+            padding: 20mm !important;
+            box-shadow: none !important;
+            border: none !important;
+            color: black !important;
+            /* Force page breaks if content is long */
+            page-break-inside: auto;
+        }
+        
+        .print-preview * {
+             page-break-inside: auto;
+        }
+        
+        /* Clean up links */
+        a[href]:after {
+            content: none !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900 h-screen overflow-hidden">
+    <div id="root" class="h-full"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
