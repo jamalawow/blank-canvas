@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Resume Tailor Design System
+   A bold, professional aesthetic with ink-inspired dark theme
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light mode - Clean paper aesthetic */
+    --background: 40 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Ink blue primary */
+    --primary: 220 70% 25%;
+    --primary-foreground: 40 20% 98%;
+
+    /* Warm paper secondary */
+    --secondary: 40 30% 94%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent - warm amber for highlights */
+    --accent: 35 90% 55%;
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success green */
+    --success: 142 70% 35%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning amber */
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 25% 10%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 70% 25%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar - dark ink */
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 40 15% 75%;
+    --sidebar-primary: 35 90% 55%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 40 20% 98%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 35 90% 55%;
+    --sidebar-muted: 220 15% 40%;
+  }
+
+  .dark {
+    /* Dark mode - Deep ink aesthetic */
+    --background: 220 25% 6%;
+    --foreground: 40 15% 92%;
+
+    --card: 220 25% 10%;
+    --card-foreground: 40 15% 92%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 40 15% 92%;
+
+    --primary: 35 90% 55%;
+    --primary-foreground: 220 25% 8%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 40 15% 92%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 35 90% 55%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 25% 8%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 35 90% 55%;
+
+    --sidebar-background: 220 30% 4%;
+    --sidebar-foreground: 40 15% 75%;
+    --sidebar-primary: 35 90% 55%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 25% 12%;
+    --sidebar-accent-foreground: 40 20% 98%;
+    --sidebar-border: 220 25% 15%;
+    --sidebar-ring: 35 90% 55%;
+    --sidebar-muted: 220 15% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+@layer utilities {
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+
+  /* Focus ring utility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+  }
+}
